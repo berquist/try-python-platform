@@ -18,4 +18,4 @@ platform_results = {
     "version": platform.version(),
     "uname": platform.uname(),
 }
-pprint(platform.results)
+pprint(platform_results)
