@@ -1,0 +1,36 @@
+---
+name: try Python platform module in Linux container
+
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+  push:
+
+jobs:
+  run-python-platform:
+    name: image:${{ matrix.image }} / version:${{ matrix.python-version }}
+    runs-on: ubuntu-22.04
+    container:
+      image: ${{ matrix.image }}
+    strategy:
+        image:
+          - almalinux:8.10-minimal-20240528
+          - almalinux:9.4-minimal-20240530
+          - rockylinux:8.9.20231119-minimal
+          - rockylinux:9.3.20231119-minimal
+        python-version:
+          - 3.7
+          - 3.8
+          - 3.9
+          - '3.10'
+          - 3.11
+          - 3.12
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: try calling platform code
+        run: |
+          python try_platform.py
