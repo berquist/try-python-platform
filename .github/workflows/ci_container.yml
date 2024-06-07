@@ -13,18 +13,18 @@ jobs:
     container:
       image: ${{ matrix.image }}
     strategy:
-        image:
-          - almalinux:8.10-minimal-20240528
-          - almalinux:9.4-minimal-20240530
-          - rockylinux:8.9.20231119-minimal
-          - rockylinux:9.3.20231119-minimal
-        python-version:
-          - 3.7
-          - 3.8
-          - 3.9
-          - '3.10'
-          - 3.11
-          - 3.12
+      image:
+        - almalinux:8.10-minimal-20240528
+        - almalinux:9.4-minimal-20240530
+        - rockylinux:8.9.20231119-minimal
+        - rockylinux:9.3.20231119-minimal
+      python-version:
+        - 3.7
+        - 3.8
+        - 3.9
+        - '3.10'
+        - 3.11
+        - 3.12
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
