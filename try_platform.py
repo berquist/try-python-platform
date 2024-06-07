@@ -23,5 +23,7 @@ if results["system"] == "Darwin":
 elif results["system"] == "Windows":
     results["win32_ver"] = platform.win32_ver()
 else:
-    results["freedesktop_os_release"] = platform.freedesktop_os_release()
+    python_minor_version = int(results["python_version_tuple"][1])
+    if python_minor_version >= 10:
+        results["freedesktop_os_release"] = platform.freedesktop_os_release()
 pprint(results)
