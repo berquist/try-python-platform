@@ -1,7 +1,7 @@
 import platform
 from pprint import pprint
 
-platform_results = {
+results = {
     "architecture": platform.architecture(),
     "machine": platform.machine(),
     "node": platform.node(),
@@ -18,4 +18,10 @@ platform_results = {
     "version": platform.version(),
     "uname": platform.uname(),
 }
-pprint(platform_results)
+if results["system"] == "Darwin":
+    results["mac_ver"] = platform.mac_ver()
+elif results["system"] == "Windows":
+    results["win32_ver"] = platform.win32_ver()
+else:
+    results["freedesktop_os_release"] = platform.freedesktop_os_release()
+pprint(results)
