@@ -42,4 +42,4 @@ jobs:
       #     python-version: ${{ matrix.python-version }}
       - name: try calling platform code
         run: |
-          python3 try_platform.py
+          bash ./execute_python.sh
