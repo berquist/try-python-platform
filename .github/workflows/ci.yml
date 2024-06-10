@@ -35,7 +35,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: set JSON output file location (Windows)
         run: |
-          Add-Content -Path ${env:GITHUB_ENV} -Value "TRY_PLATFORM_OUTPUTFILE=${{ github.job }}.json"
+          Add-Content -Path "${env:GITHUB_ENV}" -Value "TRY_PLATFORM_OUTPUTFILE=${{ github.job }}.json"
         if: ${{ matrix.os == 'windows-latest' }}
       - name: set JSON output file location (Unix)
         run: |

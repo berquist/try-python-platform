@@ -30,4 +30,4 @@ else:
         results["freedesktop_os_release"] = platform.freedesktop_os_release()
 pprint(results)
 with open(os.getenv("TRY_PLATFORM_OUTPUTFILE"), "w") as handle:
-    json.write(results, handle, indent=2)
+    json.dump(results, handle, indent=2)
