@@ -12,7 +12,7 @@ jobs:
     # name: image:${{ matrix.image }} / version:${{ matrix.python-version }}
     runs-on: ubuntu-22.04
     env:
-      JOB_NAME: ${{ matrix.image }}
+      JOB_NAME_DIRTY: ${{ matrix.image }}
     container:
       image: ${{ matrix.image }}
     strategy:
@@ -34,6 +34,9 @@ jobs:
         #   - 3.12
       fail-fast: false
     steps:
+      - name: set JOB_NAME (Unix)
+        run: |
+          echo "JOB_NAME=${${{ env.JOB_NAME_DIRTY }}//:/_}.json" >> "${GITHUB_ENV}"
       - uses: actions/checkout@v4
       - name: install system-level dependencies
         run: |

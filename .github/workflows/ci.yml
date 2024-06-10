@@ -11,7 +11,7 @@ jobs:
     name: os:${{ matrix.os }} / version:${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     env:
-      JOB_NAME: ${{ matrix.os }}_${{ matrix.python-version }}
+      JOB_NAME_DIRTY: ${{ matrix.os }}_${{ matrix.python-version }}
     strategy:
       matrix:
         os:
@@ -31,6 +31,15 @@ jobs:
             python-version: 3.7
       fail-fast: false
     steps:
+      - name: set JOB_NAME (Unix)
+        run: |
+          echo "JOB_NAME=${${{ env.JOB_NAME_DIRTY }}//:/_}.json" >> "${GITHUB_ENV}"
+        if: ${{ matrix.os != 'windows-latest' }}
+      - name: set JOB_NAME (Windows)
+        run: |
+          $job_name = '${{ env.JOB_NAME_DIRTY }}'.Replace(':', '_')
+          Add-Content -Path "${env:GITHUB_ENV}" -Value "JOB_NAME=${job_name}"
+        if: ${{ matrix.os == 'windows-latest' }}
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
