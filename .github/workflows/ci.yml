@@ -33,6 +33,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      - name: set JSON output file location (Windows)
+        run: |
+          Add-Content -Path ${env:GITHUB_ENV} -Value "TRY_PLATFORM_OUTPUTFILE=${{ github.job }}.json"
+        if: ${{ matrix.os == 'windows-latest' }}
+      - name: set JSON output file location (Unix)
+        run: |
+          echo "TRY_PLATFORM_OUTPUTFILE=${{ github.job }}.json" >> "${GITHUB_ENV}"
+        if: ${{ matrix.os != 'windows-latest' }}
       - name: try calling platform code
         run: |
           python try_platform.py
+      - name: save JSON output
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}
+          path: *.json

@@ -40,6 +40,14 @@ jobs:
       # - uses: actions/setup-python@v5
       #   with:
       #     python-version: ${{ matrix.python-version }}
+      - name: set JSON output file location (Unix)
+        run: |
+          echo "TRY_PLATFORM_OUTPUTFILE=${{ github.job }}.json" >> "${GITHUB_ENV}"
       - name: try calling platform code
         run: |
           bash ./execute_python.sh
+      - name: save JSON output
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}
+          path: *.json

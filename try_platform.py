@@ -1,3 +1,5 @@
+import os
+import json
 import platform
 from pprint import pprint
 
@@ -27,3 +29,5 @@ else:
     if python_minor_version >= 10:
         results["freedesktop_os_release"] = platform.freedesktop_os_release()
 pprint(results)
+with open(os.getenv("TRY_PLATFORM_OUTPUTFILE"), "w") as handle:
+    json.write(results, handle, indent=2)
