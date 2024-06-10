@@ -8,7 +8,8 @@ on:
 
 jobs:
   run-python-platform:
-    name: image:${{ matrix.image }} / version:${{ matrix.python-version }}
+    name: ${{ matrix.image }}
+    # name: image:${{ matrix.image }} / version:${{ matrix.python-version }}
     runs-on: ubuntu-22.04
     container:
       image: ${{ matrix.image }}
@@ -19,19 +20,23 @@ jobs:
           - almalinux:9.4-20240530
           - rockylinux:8.9.20231119
           - rockylinux:9.3.20231119
-        python-version:
-          - 3.7
-          - 3.8
-          - 3.9
-          - '3.10'
-          - 3.11
-          - 3.12
+        # python-version:
+        #   - 3.7
+        #   - 3.8
+        #   - 3.9
+        #   - '3.10'
+        #   - 3.11
+        #   - 3.12
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
+      - name: install system-level dependencies
+        run: |
+          bash ./install_system_level_dependencies.sh
+      # TODO use to compile from source?
+      # - uses: actions/setup-python@v5
+      #   with:
+      #     python-version: ${{ matrix.python-version }}
       - name: try calling platform code
         run: |
           python try_platform.py
