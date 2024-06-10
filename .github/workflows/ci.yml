@@ -35,11 +35,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: set JSON output file location (Windows)
         run: |
-          Add-Content -Path "${env:GITHUB_ENV}" -Value "TRY_PLATFORM_OUTPUTFILE=${{ github.jobs.${{ github.job }}.name }}_${{ github.run_attempt }}.json"
+          Add-Content -Path "${env:GITHUB_ENV}" -Value "TRY_PLATFORM_OUTPUTFILE=${{ github.jobs[github.job].name }}_${{ github.run_attempt }}.json"
         if: ${{ matrix.os == 'windows-latest' }}
       - name: set JSON output file location (Unix)
         run: |
-          echo "TRY_PLATFORM_OUTPUTFILE=${{ github.jobs.${{ github.job }}.name }}_${{ github.run_attempt }}.json" >> "${GITHUB_ENV}"
+          echo "TRY_PLATFORM_OUTPUTFILE=${{ github.jobs[github.job].name }}_${{ github.run_attempt }}.json" >> "${GITHUB_ENV}"
         if: ${{ matrix.os != 'windows-latest' }}
       - name: try calling platform code
         run: |
@@ -47,5 +47,5 @@ jobs:
       - name: save JSON output
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.jobs.${{ github.job }}.name }}_${{ github.run_attempt }}
+          name: ${{ github.jobs[github.job].name }}_${{ github.run_attempt }}
           path: '*.json'
