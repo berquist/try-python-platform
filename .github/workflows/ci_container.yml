@@ -15,10 +15,10 @@ jobs:
     strategy:
       matrix:
         image:
-          - almalinux:8.10-minimal-20240528
-          - almalinux:9.4-minimal-20240530
-          - rockylinux:8.9.20231119-minimal
-          - rockylinux:9.3.20231119-minimal
+          - almalinux:8.10-20240528
+          - almalinux:9.4-20240530
+          - rockylinux:8.9.20231119
+          - rockylinux:9.3.20231119
         python-version:
           - 3.7
           - 3.8
