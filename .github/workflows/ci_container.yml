@@ -18,6 +18,8 @@ jobs:
         image:
           - almalinux:8.10-20240528
           - almalinux:9.4-20240530
+          - debian:bookworm-20240513
+          - debian:sid-20240513
           - rockylinux:8.9.20231119
           - rockylinux:9.3.20231119
         # python-version:
