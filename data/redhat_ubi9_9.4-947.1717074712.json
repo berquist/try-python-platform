@@ -1,0 +1,53 @@
+{
+  "architecture": [
+    "64bit",
+    ""
+  ],
+  "machine": "x86_64",
+  "node": "b7f81a99e8c5",
+  "platform": "Linux-6.5.0-1021-azure-x86_64-with-glibc2.34",
+  "processor": "x86_64",
+  "python_build": [
+    "main",
+    "Feb 19 2024 00:00:00"
+  ],
+  "python_compiler": "GCC 11.4.1 20231218 (Red Hat 11.4.1-3)",
+  "python_branch": "",
+  "python_implementation": "CPython",
+  "python_revision": "",
+  "python_version": "3.12.1",
+  "python_version_tuple": [
+    "3",
+    "12",
+    "1"
+  ],
+  "system": "Linux",
+  "version": "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+  "uname": [
+    "Linux",
+    "b7f81a99e8c5",
+    "6.5.0-1021-azure",
+    "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+    "x86_64",
+    "x86_64"
+  ],
+  "freedesktop_os_release": {
+    "NAME": "Red Hat Enterprise Linux",
+    "ID": "rhel",
+    "PRETTY_NAME": "Red Hat Enterprise Linux 9.4 (Plow)",
+    "VERSION": "9.4 (Plow)",
+    "ID_LIKE": "fedora",
+    "VERSION_ID": "9.4",
+    "PLATFORM_ID": "platform:el9",
+    "ANSI_COLOR": "0;31",
+    "LOGO": "fedora-logo-icon",
+    "CPE_NAME": "cpe:/o:redhat:enterprise_linux:9::baseos",
+    "HOME_URL": "https://www.redhat.com/",
+    "DOCUMENTATION_URL": "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9",
+    "BUG_REPORT_URL": "https://bugzilla.redhat.com/",
+    "REDHAT_BUGZILLA_PRODUCT": "Red Hat Enterprise Linux 9",
+    "REDHAT_BUGZILLA_PRODUCT_VERSION": "9.4",
+    "REDHAT_SUPPORT_PRODUCT": "Red Hat Enterprise Linux",
+    "REDHAT_SUPPORT_PRODUCT_VERSION": "9.4"
+  }
+}

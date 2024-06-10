@@ -1,0 +1,52 @@
+{
+  "architecture": [
+    "64bit",
+    ""
+  ],
+  "machine": "x86_64",
+  "node": "77f23e6e0522",
+  "platform": "Linux-6.5.0-1021-azure-x86_64-with-glibc2.28",
+  "processor": "x86_64",
+  "python_build": [
+    "main",
+    "Feb 21 2024 10:25:11"
+  ],
+  "python_compiler": "GCC 8.5.0 20210514 (Red Hat 8.5.0-21)",
+  "python_branch": "",
+  "python_implementation": "CPython",
+  "python_revision": "",
+  "python_version": "3.12.1",
+  "python_version_tuple": [
+    "3",
+    "12",
+    "1"
+  ],
+  "system": "Linux",
+  "version": "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+  "uname": [
+    "Linux",
+    "77f23e6e0522",
+    "6.5.0-1021-azure",
+    "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+    "x86_64",
+    "x86_64"
+  ],
+  "freedesktop_os_release": {
+    "NAME": "Red Hat Enterprise Linux",
+    "ID": "rhel",
+    "PRETTY_NAME": "Red Hat Enterprise Linux 8.10 (Ootpa)",
+    "VERSION": "8.10 (Ootpa)",
+    "ID_LIKE": "fedora",
+    "VERSION_ID": "8.10",
+    "PLATFORM_ID": "platform:el8",
+    "ANSI_COLOR": "0;31",
+    "CPE_NAME": "cpe:/o:redhat:enterprise_linux:8::baseos",
+    "HOME_URL": "https://www.redhat.com/",
+    "DOCUMENTATION_URL": "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8",
+    "BUG_REPORT_URL": "https://bugzilla.redhat.com/",
+    "REDHAT_BUGZILLA_PRODUCT": "Red Hat Enterprise Linux 8",
+    "REDHAT_BUGZILLA_PRODUCT_VERSION": "8.10",
+    "REDHAT_SUPPORT_PRODUCT": "Red Hat Enterprise Linux",
+    "REDHAT_SUPPORT_PRODUCT_VERSION": "8.10"
+  }
+}
