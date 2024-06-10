@@ -1,0 +1,53 @@
+{
+  "architecture": [
+    "64bit",
+    ""
+  ],
+  "machine": "x86_64",
+  "node": "dea8580fd0d0",
+  "platform": "Linux-6.5.0-1021-azure-x86_64-with-glibc2.28",
+  "processor": "x86_64",
+  "python_build": [
+    "main",
+    "Feb 21 2024 15:34:15"
+  ],
+  "python_compiler": "GCC 8.5.0 20210514 (Red Hat 8.5.0-21)",
+  "python_branch": "",
+  "python_implementation": "CPython",
+  "python_revision": "",
+  "python_version": "3.12.1",
+  "python_version_tuple": [
+    "3",
+    "12",
+    "1"
+  ],
+  "system": "Linux",
+  "version": "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+  "uname": [
+    "Linux",
+    "dea8580fd0d0",
+    "6.5.0-1021-azure",
+    "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+    "x86_64",
+    "x86_64"
+  ],
+  "freedesktop_os_release": {
+    "NAME": "Rocky Linux",
+    "ID": "rocky",
+    "PRETTY_NAME": "Rocky Linux 8.9 (Green Obsidian)",
+    "VERSION": "8.9 (Green Obsidian)",
+    "ID_LIKE": "rhel centos fedora",
+    "VERSION_ID": "8.9",
+    "PLATFORM_ID": "platform:el8",
+    "ANSI_COLOR": "0;32",
+    "LOGO": "fedora-logo-icon",
+    "CPE_NAME": "cpe:/o:rocky:rocky:8:GA",
+    "HOME_URL": "https://rockylinux.org/",
+    "BUG_REPORT_URL": "https://bugs.rockylinux.org/",
+    "SUPPORT_END": "2029-05-31",
+    "ROCKY_SUPPORT_PRODUCT": "Rocky-Linux-8",
+    "ROCKY_SUPPORT_PRODUCT_VERSION": "8.9",
+    "REDHAT_SUPPORT_PRODUCT": "Rocky Linux",
+    "REDHAT_SUPPORT_PRODUCT_VERSION": "8.9"
+  }
+}

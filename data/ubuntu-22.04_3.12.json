@@ -1,0 +1,48 @@
+{
+  "architecture": [
+    "64bit",
+    "ELF"
+  ],
+  "machine": "x86_64",
+  "node": "fv-az1117-424",
+  "platform": "Linux-6.5.0-1021-azure-x86_64-with-glibc2.35",
+  "processor": "x86_64",
+  "python_build": [
+    "main",
+    "May  9 2024 14:51:07"
+  ],
+  "python_compiler": "GCC 11.4.0",
+  "python_branch": "",
+  "python_implementation": "CPython",
+  "python_revision": "",
+  "python_version": "3.12.3",
+  "python_version_tuple": [
+    "3",
+    "12",
+    "3"
+  ],
+  "system": "Linux",
+  "version": "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+  "uname": [
+    "Linux",
+    "fv-az1117-424",
+    "6.5.0-1021-azure",
+    "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+    "x86_64",
+    "x86_64"
+  ],
+  "freedesktop_os_release": {
+    "NAME": "Ubuntu",
+    "ID": "ubuntu",
+    "PRETTY_NAME": "Ubuntu 22.04.4 LTS",
+    "VERSION_ID": "22.04",
+    "VERSION": "22.04.4 LTS (Jammy Jellyfish)",
+    "VERSION_CODENAME": "jammy",
+    "ID_LIKE": "debian",
+    "HOME_URL": "https://www.ubuntu.com/",
+    "SUPPORT_URL": "https://help.ubuntu.com/",
+    "BUG_REPORT_URL": "https://bugs.launchpad.net/ubuntu/",
+    "PRIVACY_POLICY_URL": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+    "UBUNTU_CODENAME": "jammy"
+  }
+}

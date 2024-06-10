@@ -1,0 +1,43 @@
+{
+  "architecture": [
+    "64bit",
+    ""
+  ],
+  "machine": "arm64",
+  "node": "Mac-1718043181735.local",
+  "platform": "macOS-14.5-arm64-arm-64bit",
+  "processor": "arm",
+  "python_build": [
+    "v3.12.3:f6650f9ad7",
+    "Apr  9 2024 08:18:47"
+  ],
+  "python_compiler": "Clang 13.0.0 (clang-1300.0.29.30)",
+  "python_branch": "v3.12.3",
+  "python_implementation": "CPython",
+  "python_revision": "f6650f9ad7",
+  "python_version": "3.12.3",
+  "python_version_tuple": [
+    "3",
+    "12",
+    "3"
+  ],
+  "system": "Darwin",
+  "version": "Darwin Kernel Version 23.5.0: Wed May  1 20:12:39 PDT 2024; root:xnu-10063.121.3~5/RELEASE_ARM64_VMAPPLE",
+  "uname": [
+    "Darwin",
+    "Mac-1718043181735.local",
+    "23.5.0",
+    "Darwin Kernel Version 23.5.0: Wed May  1 20:12:39 PDT 2024; root:xnu-10063.121.3~5/RELEASE_ARM64_VMAPPLE",
+    "arm64",
+    "arm"
+  ],
+  "mac_ver": [
+    "14.5",
+    [
+      "",
+      "",
+      ""
+    ],
+    "arm64"
+  ]
+}

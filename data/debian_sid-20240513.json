@@ -1,0 +1,43 @@
+{
+  "architecture": [
+    "64bit",
+    ""
+  ],
+  "machine": "x86_64",
+  "node": "752d97edab1e",
+  "platform": "Linux-6.5.0-1021-azure-x86_64-with-glibc2.38",
+  "processor": "",
+  "python_build": [
+    "main",
+    "Apr 10 2024 13:16:36"
+  ],
+  "python_compiler": "GCC 13.2.0",
+  "python_branch": "",
+  "python_implementation": "CPython",
+  "python_revision": "",
+  "python_version": "3.11.9",
+  "python_version_tuple": [
+    "3",
+    "11",
+    "9"
+  ],
+  "system": "Linux",
+  "version": "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+  "uname": [
+    "Linux",
+    "752d97edab1e",
+    "6.5.0-1021-azure",
+    "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+    "x86_64",
+    ""
+  ],
+  "freedesktop_os_release": {
+    "NAME": "Debian GNU/Linux",
+    "ID": "debian",
+    "PRETTY_NAME": "Debian GNU/Linux trixie/sid",
+    "VERSION_CODENAME": "trixie",
+    "HOME_URL": "https://www.debian.org/",
+    "SUPPORT_URL": "https://www.debian.org/support",
+    "BUG_REPORT_URL": "https://bugs.debian.org/"
+  }
+}

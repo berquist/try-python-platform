@@ -1,0 +1,45 @@
+{
+  "architecture": [
+    "64bit",
+    ""
+  ],
+  "machine": "x86_64",
+  "node": "a98d869cfb8c",
+  "platform": "Linux-6.5.0-1021-azure-x86_64-with-glibc2.36",
+  "processor": "",
+  "python_build": [
+    "main",
+    "Mar 13 2023 12:18:29"
+  ],
+  "python_compiler": "GCC 12.2.0",
+  "python_branch": "",
+  "python_implementation": "CPython",
+  "python_revision": "",
+  "python_version": "3.11.2",
+  "python_version_tuple": [
+    "3",
+    "11",
+    "2"
+  ],
+  "system": "Linux",
+  "version": "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+  "uname": [
+    "Linux",
+    "a98d869cfb8c",
+    "6.5.0-1021-azure",
+    "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+    "x86_64",
+    ""
+  ],
+  "freedesktop_os_release": {
+    "NAME": "Debian GNU/Linux",
+    "ID": "debian",
+    "PRETTY_NAME": "Debian GNU/Linux 12 (bookworm)",
+    "VERSION_ID": "12",
+    "VERSION": "12 (bookworm)",
+    "VERSION_CODENAME": "bookworm",
+    "HOME_URL": "https://www.debian.org/",
+    "SUPPORT_URL": "https://www.debian.org/support",
+    "BUG_REPORT_URL": "https://bugs.debian.org/"
+  }
+}

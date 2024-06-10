@@ -1,0 +1,48 @@
+{
+  "architecture": [
+    "64bit",
+    "ELF"
+  ],
+  "machine": "x86_64",
+  "node": "832d025915c5",
+  "platform": "Linux-6.5.0-1021-azure-x86_64-with-glibc2.38",
+  "processor": "",
+  "python_build": [
+    "main",
+    "Apr 23 2024 09:16:07"
+  ],
+  "python_compiler": "GCC 13.2.1 20240417",
+  "python_branch": "",
+  "python_implementation": "CPython",
+  "python_revision": "",
+  "python_version": "3.12.3",
+  "python_version_tuple": [
+    "3",
+    "12",
+    "3"
+  ],
+  "system": "Linux",
+  "version": "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+  "uname": [
+    "Linux",
+    "832d025915c5",
+    "6.5.0-1021-azure",
+    "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+    "x86_64",
+    ""
+  ],
+  "freedesktop_os_release": {
+    "NAME": "Arch Linux",
+    "ID": "arch",
+    "PRETTY_NAME": "Arch Linux",
+    "BUILD_ID": "rolling",
+    "VERSION_ID": "20240101.0.204074",
+    "ANSI_COLOR": "38;2;23;147;209",
+    "HOME_URL": "https://archlinux.org/",
+    "DOCUMENTATION_URL": "https://wiki.archlinux.org/",
+    "SUPPORT_URL": "https://bbs.archlinux.org/",
+    "BUG_REPORT_URL": "https://bugs.archlinux.org/",
+    "PRIVACY_POLICY_URL": "https://terms.archlinux.org/docs/privacy-policy/",
+    "LOGO": "archlinux-logo"
+  }
+}

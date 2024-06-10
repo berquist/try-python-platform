@@ -1,0 +1,54 @@
+{
+  "architecture": [
+    "64bit",
+    ""
+  ],
+  "machine": "x86_64",
+  "node": "9b292df29ef0",
+  "platform": "Linux-6.5.0-1021-azure-x86_64-with-glibc2.28",
+  "processor": "x86_64",
+  "python_build": [
+    "main",
+    "Apr  8 2024 09:59:59"
+  ],
+  "python_compiler": "GCC 8.5.0 20210514 (Red Hat 8.5.0-21)",
+  "python_branch": "",
+  "python_implementation": "CPython",
+  "python_revision": "",
+  "python_version": "3.12.1",
+  "python_version_tuple": [
+    "3",
+    "12",
+    "1"
+  ],
+  "system": "Linux",
+  "version": "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+  "uname": [
+    "Linux",
+    "9b292df29ef0",
+    "6.5.0-1021-azure",
+    "#22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024",
+    "x86_64",
+    "x86_64"
+  ],
+  "freedesktop_os_release": {
+    "NAME": "AlmaLinux",
+    "ID": "almalinux",
+    "PRETTY_NAME": "AlmaLinux 8.10 (Cerulean Leopard)",
+    "VERSION": "8.10 (Cerulean Leopard)",
+    "ID_LIKE": "rhel centos fedora",
+    "VERSION_ID": "8.10",
+    "PLATFORM_ID": "platform:el8",
+    "ANSI_COLOR": "0;34",
+    "LOGO": "fedora-logo-icon",
+    "CPE_NAME": "cpe:/o:almalinux:almalinux:8::baseos",
+    "HOME_URL": "https://almalinux.org/",
+    "DOCUMENTATION_URL": "https://wiki.almalinux.org/",
+    "BUG_REPORT_URL": "https://bugs.almalinux.org/",
+    "ALMALINUX_MANTISBT_PROJECT": "AlmaLinux-8",
+    "ALMALINUX_MANTISBT_PROJECT_VERSION": "8.10",
+    "REDHAT_SUPPORT_PRODUCT": "AlmaLinux",
+    "REDHAT_SUPPORT_PRODUCT_VERSION": "8.10",
+    "SUPPORT_END": "2029-06-01"
+  }
+}
