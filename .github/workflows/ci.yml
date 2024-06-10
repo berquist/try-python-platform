@@ -36,13 +36,13 @@ jobs:
           set -x
           # echo "JOB_NAME=${${{ env.JOB_NAME_DIRTY }}//:/_}" >> "${GITHUB_ENV}"
           JOB_NAME_DIRTY="${{ env.JOB_NAME_DIRTY }}"
-          JOB_NAME="${JOB_NAME_DIRTY//:/_}"
+          JOB_NAME="${JOB_NAME_DIRTY//[\/:]/_}"
           echo "JOB_NAME=${JOB_NAME}" >> "${GITHUB_ENV}"
         shell: 'bash -e {0}'
         if: ${{ matrix.os != 'windows-latest' }}
       - name: set JOB_NAME (Windows)
         run: |
-          $job_name = '${{ env.JOB_NAME_DIRTY }}'.Replace(':', '_')
+          $job_name = '${{ env.JOB_NAME_DIRTY }}'.Replace(':', '_').Replace('/', '_')
           Add-Content -Path "${env:GITHUB_ENV}" -Value "JOB_NAME=${job_name}"
         if: ${{ matrix.os == 'windows-latest' }}
       - uses: actions/checkout@v4
