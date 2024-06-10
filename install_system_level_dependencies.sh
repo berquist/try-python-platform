@@ -9,5 +9,6 @@ elif command -v apt-get >/dev/null 2>&1; then
     apt-get update -y
     apt-get install -y python3
 elif command -v pacman >/dev/null 2>&1; then
+    pacman -Syu
     pacman -S --noconfirm python
 fi
