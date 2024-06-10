@@ -23,6 +23,8 @@ jobs:
           - archlinux:base-devel-20240101.0.204074
           - debian:bookworm-20240513
           - debian:sid-20240513
+          - redhat/ubi8:8.10-901.1717584420
+          - redhat/ubi9:9.4-947.1717074712
           - rockylinux:8.9.20231119
           - rockylinux:9.3.20231119
         # python-version:
