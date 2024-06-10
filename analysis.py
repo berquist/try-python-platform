@@ -17,3 +17,5 @@ if __name__ == "__main__":
     )
     print(df)
     print(df_os_release)
+    df.to_csv(data_dir / "df.csv")
+    df_os_release.to_csv(data_dir / "df_os_release.csv")
