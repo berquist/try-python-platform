@@ -11,6 +11,8 @@ jobs:
     name: ${{ matrix.image }}
     # name: image:${{ matrix.image }} / version:${{ matrix.python-version }}
     runs-on: ubuntu-22.04
+    env:
+      JOB_NAME: ${{ matrix.image }}
     container:
       image: ${{ matrix.image }}
     strategy:
@@ -42,12 +44,12 @@ jobs:
       #     python-version: ${{ matrix.python-version }}
       - name: set JSON output file location (Unix)
         run: |
-          echo "TRY_PLATFORM_OUTPUTFILE=${{ github.jobs[github.job].name }}_${{ github.run_attempt }}.json" >> "${GITHUB_ENV}"
+          echo "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json" >> "${GITHUB_ENV}"
       - name: try calling platform code
         run: |
           bash ./execute_python.sh
       - name: save JSON output
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.jobs[github.job].name }}_${{ github.run_attempt }}
+          name: ${{ env.JOB_NAME }}
           path: '*.json'
