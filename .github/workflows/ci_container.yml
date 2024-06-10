@@ -37,6 +37,7 @@ jobs:
       - name: set JOB_NAME (Unix)
         run: |
           # echo "JOB_NAME=${${{ env.JOB_NAME_DIRTY }}//:/_}" >> "${GITHUB_ENV}"
+          JOB_NAME_DIRTY=${{ env.JOB_NAME_DIRTY }}
           JOB_NAME=${JOB_NAME_DIRTY//:/_}
           echo "JOB_NAME=${JOB_NAME} >> "${GITHUB_ENV}"
       - uses: actions/checkout@v4
