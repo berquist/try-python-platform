@@ -41,6 +41,7 @@ jobs:
           JOB_NAME_DIRTY="${{ env.JOB_NAME_DIRTY }}"
           JOB_NAME="${JOB_NAME_DIRTY//:/_}"
           echo "JOB_NAME=${JOB_NAME}" >> "${GITHUB_ENV}"
+        shell: 'bash -e {0}'
       - uses: actions/checkout@v4
       - name: install system-level dependencies
         run: |

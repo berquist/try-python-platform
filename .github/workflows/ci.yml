@@ -38,6 +38,7 @@ jobs:
           JOB_NAME_DIRTY="${{ env.JOB_NAME_DIRTY }}"
           JOB_NAME="${JOB_NAME_DIRTY//:/_}"
           echo "JOB_NAME=${JOB_NAME}" >> "${GITHUB_ENV}"
+        shell: 'bash -e {0}'
         if: ${{ matrix.os != 'windows-latest' }}
       - name: set JOB_NAME (Windows)
         run: |
