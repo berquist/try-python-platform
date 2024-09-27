@@ -10,7 +10,7 @@ jobs:
   run-python-platform:
     name: ${{ matrix.image }}
     # name: image:${{ matrix.image }} / version:${{ matrix.python-version }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       JOB_NAME_DIRTY: ${{ matrix.image }}
     container:
