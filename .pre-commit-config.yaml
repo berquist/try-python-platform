@@ -10,11 +10,11 @@ repos:
     hooks:
       - id: actionlint
   - repo: https://github.com/PyCQA/isort
-    rev: "5.13.2"
+    rev: "6.0.0"
     hooks:
       - id: isort
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.3
+    rev: v0.9.6
     hooks:
       - id: ruff
         args: [--fix]
