@@ -63,9 +63,14 @@ jobs:
         run: |
           echo "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json" >> "${GITHUB_ENV}"
         if: ${{ runner.os != 'Windows' }}
-      - name: try calling platform code
+      - name: try calling platform code (Windows)
+        run: |
+          python try_platform.py
+        if: ${{ runner.os == 'Windows' }}
+      - name: try calling platform code (Unix)
         run: |
           bash ./execute_python.sh
+        if: ${{ runner.os != 'Windows' }}
       - name: save JSON output
         uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4
         with:
