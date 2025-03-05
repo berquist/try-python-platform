@@ -44,7 +44,7 @@ jobs:
           JOB_NAME="${JOB_NAME_DIRTY//[\/:]/_}"
           echo "JOB_NAME=${JOB_NAME}" >> "${GITHUB_ENV}"
         shell: 'bash -e {0}'
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: install system-level dependencies
         run: |
           bash ./install_system_level_dependencies.sh
@@ -59,7 +59,7 @@ jobs:
         run: |
           bash ./execute_python.sh
       - name: save JSON output
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4
         with:
           name: ${{ env.JOB_NAME }}
           path: '*.json'
