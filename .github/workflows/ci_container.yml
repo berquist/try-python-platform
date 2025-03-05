@@ -47,6 +47,6 @@ jobs:
         with:
           persist-credentials: false
       # TODO use current ref
-      - uses: berquist/try-python-platform@combined-ci
+      - uses: berquist/try-python-platform@main
         with:
           use-sudo: false
