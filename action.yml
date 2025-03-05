@@ -5,8 +5,8 @@ description: 'execute Python platform stdlib functions'
 inputs:
   use-sudo:
     required: true
-#   python-version:
-#     required: false
+  python-version:
+    required: false
 
 runs:
   using: "composite"
@@ -36,10 +36,10 @@ runs:
         USE_SUDO: ${{ inputs.use-sudo }}
       shell: bash
       if: ${{ runner.os != 'Windows' }}
-    # TODO dispatch against python-version input
-    # - uses: actions/setup-python@v5
-    #   with:
-    #     python-version: ${{ matrix.python-version }}
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+      if: ${{ inputs.python-version }}
     - name: set JSON output file location (Windows)
       run: |
         Add-Content -Path "${env:GITHUB_ENV}" -Value "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json"
