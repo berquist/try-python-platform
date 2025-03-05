@@ -44,17 +44,25 @@ jobs:
           JOB_NAME="${JOB_NAME_DIRTY//[\/:]/_}"
           echo "JOB_NAME=${JOB_NAME}" >> "${GITHUB_ENV}"
         shell: 'bash -e {0}'
+        if: ${{ runner.os != 'Windows' }}
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: install system-level dependencies
         run: |
           bash ./install_system_level_dependencies.sh
+        if: ${{ runner.os != 'Windows' }}
       # TODO use to compile from source?
       # - uses: actions/setup-python@v5
       #   with:
       #     python-version: ${{ matrix.python-version }}
+      - name: set JSON output file location (Windows)
+        run: |
+          Add-Content -Path "${env:GITHUB_ENV}" -Value "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json"
+        shell: pwsh
+        if: ${{ runner.os == 'Windows' }}
       - name: set JSON output file location (Unix)
         run: |
           echo "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json" >> "${GITHUB_ENV}"
+        if: ${{ runner.os != 'Windows' }}
       - name: try calling platform code
         run: |
           bash ./execute_python.sh
