@@ -45,8 +45,14 @@ jobs:
           echo "JOB_NAME=${JOB_NAME}" >> "${GITHUB_ENV}"
         shell: 'bash -e {0}'
         if: ${{ runner.os != 'Windows' }}
+      - name: set JOB_NAME (Windows)
+        run: |
+          $job_name = '${{ env.JOB_NAME_DIRTY }}'.Replace(':', '_').Replace('/', '_')
+          Add-Content -Path "${env:GITHUB_ENV}" -Value "JOB_NAME=${job_name}"
+        shell: pwsh
+        if: ${{ runner.os == 'Windows' }}
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - name: install system-level dependencies
+      - name: install system-level dependencies (Unix
         run: |
           bash ./install_system_level_dependencies.sh
         if: ${{ runner.os != 'Windows' }}

@@ -47,7 +47,7 @@ jobs:
         shell: pwsh
         if: ${{ runner.os == 'Windows' }}
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - name: install system-level dependencies
+      - name: install system-level dependencies (Unix)
         run: |
           bash ./install_system_level_dependencies.sh
         if: ${{ runner.os != 'Windows' }}
