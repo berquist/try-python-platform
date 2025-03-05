@@ -6,10 +6,14 @@ on:
   pull_request:
   push:
 
+concurrency:
+  group: ci-container-${{github.ref}}-${{github.event.pull_request.number || github.run_number}}
+  cancel-in-progress: true
+
 permissions: {}
 
 jobs:
-  run-python-platform:
+  run-python-platform-container:
     name: ${{ matrix.image }}
     # name: image:${{ matrix.image }} / version:${{ matrix.python-version }}
     runs-on: ubuntu-24.04
@@ -39,50 +43,9 @@ jobs:
         #   - 3.13
       fail-fast: false
     steps:
-      - name: set JOB_NAME (Unix)  # zizmor: ignore[template-injection]
-        run: |
-          set -x
-          JOB_NAME_DIRTY="${{ env.JOB_NAME_DIRTY }}"
-          JOB_NAME="${JOB_NAME_DIRTY//[\/:]/_}"
-          echo "JOB_NAME=${JOB_NAME}" >> "${GITHUB_ENV}"
-        shell: 'bash -e {0}'
-        if: ${{ runner.os != 'Windows' }}
-      - name: set JOB_NAME (Windows)  # zizmor: ignore[template-injection]
-        run: |
-          $job_name = '${{ env.JOB_NAME_DIRTY }}'.Replace(':', '_').Replace('/', '_')
-          Add-Content -Path "${env:GITHUB_ENV}" -Value "JOB_NAME=${job_name}"
-        shell: pwsh
-        if: ${{ runner.os == 'Windows' }}
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           persist-credentials: false
-      - name: install system-level dependencies (Unix)
-        run: |
-          bash ./install_system_level_dependencies.sh
-        if: ${{ runner.os != 'Windows' }}
-      # TODO use to compile from source?
-      # - uses: actions/setup-python@v5
-      #   with:
-      #     python-version: ${{ matrix.python-version }}
-      - name: set JSON output file location (Windows)
-        run: |
-          Add-Content -Path "${env:GITHUB_ENV}" -Value "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json"
-        shell: pwsh
-        if: ${{ runner.os == 'Windows' }}
-      - name: set JSON output file location (Unix)
-        run: |
-          echo "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json" >> "${GITHUB_ENV}"
-        if: ${{ runner.os != 'Windows' }}
-      - name: try calling platform code (Windows)
-        run: |
-          python try_platform.py
-        if: ${{ runner.os == 'Windows' }}
-      - name: try calling platform code (Unix)
-        run: |
-          bash ./execute_python.sh
-        if: ${{ runner.os != 'Windows' }}
-      - name: save JSON output
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4
+      - uses: berquist/try-python-platform@combined-ci
         with:
-          name: ${{ env.JOB_NAME }}
-          path: '*.json'
+          container-image: ${{ matrix.image }}
