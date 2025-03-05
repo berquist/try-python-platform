@@ -46,7 +46,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           persist-credentials: false
+      # TODO use current ref
       - uses: berquist/try-python-platform@combined-ci
         with:
           use-sudo: false
-          container-image: ${{ matrix.image }}
