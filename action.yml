@@ -23,12 +23,10 @@ runs:
         Add-Content -Path "${env:GITHUB_ENV}" -Value "JOB_NAME=${job_name}"
       shell: pwsh
       if: ${{ runner.os == 'Windows' }}
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      with:
-        persist-credentials: false
     - name: install system-level dependencies (Unix)
       run: |
         sudo bash ./install_system_level_dependencies.sh
+      shell: bash
       if: ${{ runner.os != 'Windows' }}
     # TODO dispatch against python-version input
     # - uses: actions/setup-python@v5
@@ -42,14 +40,17 @@ runs:
     - name: set JSON output file location (Unix)
       run: |
         echo "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json" >> "${GITHUB_ENV}"
+      shell: bash
       if: ${{ runner.os != 'Windows' }}
     - name: try calling platform code (Windows)
       run: |
         python try_platform.py
+      shell: pwsh
       if: ${{ runner.os == 'Windows' }}
     - name: try calling platform code (Unix)
       run: |
         bash ./execute_python.sh
+      shell: bash
       if: ${{ runner.os != 'Windows' }}
     - name: save JSON output
       uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4
