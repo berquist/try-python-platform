@@ -11,7 +11,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: set JOB_NAME (Unix)  # zizmor: ignore[template-injection]
+    - name: set JOB_NAME (Unix)
       run: |
         set -x
         JOB_NAME_DIRTY="${{ env.JOB_NAME_DIRTY }}"
@@ -19,7 +19,7 @@ runs:
         echo "JOB_NAME=${JOB_NAME}" >> "${GITHUB_ENV}"
       shell: 'bash -e {0}'
       if: ${{ runner.os != 'Windows' }}
-    - name: set JOB_NAME (Windows)  # zizmor: ignore[template-injection]
+    - name: set JOB_NAME (Windows)
       run: |
         $job_name = '${{ env.JOB_NAME_DIRTY }}'.Replace(':', '_').Replace('/', '_')
         Add-Content -Path "${env:GITHUB_ENV}" -Value "JOB_NAME=${job_name}"

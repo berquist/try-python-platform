@@ -1,0 +1,8 @@
+---
+rules:
+  github-env:
+    ignore:
+      - action.yml:15:7
+      - action.yml:23:7
+      - action.yml:44:7
+      - action.yml:49:7
