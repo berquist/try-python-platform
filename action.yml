@@ -36,7 +36,7 @@ runs:
         USE_SUDO: ${{ inputs.use-sudo }}
       shell: bash
       if: ${{ runner.os != 'Windows' }}
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5
       with:
         python-version: ${{ inputs.python-version }}
       if: ${{ inputs.python-version }}
