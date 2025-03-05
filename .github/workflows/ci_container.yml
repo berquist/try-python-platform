@@ -48,4 +48,5 @@ jobs:
           persist-credentials: false
       - uses: berquist/try-python-platform@combined-ci
         with:
+          use-sudo: false
           container-image: ${{ matrix.image }}

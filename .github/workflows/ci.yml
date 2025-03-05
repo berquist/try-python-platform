@@ -43,5 +43,6 @@ jobs:
           persist-credentials: false
       - uses: berquist/try-python-platform@combined-ci
         with:
+          use-sudo: true
           os: ${{ matrix.os }}
           python-version: ${{ matrix.python-version }}
