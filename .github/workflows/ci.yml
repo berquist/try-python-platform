@@ -6,6 +6,12 @@ on:
   pull_request:
   push:
 
+concurrency:
+  group: ci-${{github.ref}}-${{github.event.pull_request.number || github.run_number}}
+  cancel-in-progress: true
+
+permissions: {}
+
 jobs:
   run-python-platform:
     name: os:${{ matrix.os }} / version:${{ matrix.python-version }}
@@ -15,55 +21,28 @@ jobs:
     strategy:
       matrix:
         os:
-          - macos-13
+          # - macos-13
           - macos-14
-          - ubuntu-22.04
+          # - ubuntu-22.04
           - windows-latest
         python-version:
           - 3.7
-          - 3.8
-          - 3.9
-          - '3.10'
-          - 3.11
-          - 3.12
+          # - 3.8
+          # - 3.9
+          # - '3.10'
+          # - 3.11
+          # - 3.12
+          - 3.13
         exclude:
           - os: macos-14
             python-version: 3.7
       fail-fast: false
     steps:
-      - name: set JOB_NAME (Unix)
-        run: |
-          set -x
-          # echo "JOB_NAME=${${{ env.JOB_NAME_DIRTY }}//:/_}" >> "${GITHUB_ENV}"
-          JOB_NAME_DIRTY="${{ env.JOB_NAME_DIRTY }}"
-          JOB_NAME="${JOB_NAME_DIRTY//[\/:]/_}"
-          echo "JOB_NAME=${JOB_NAME}" >> "${GITHUB_ENV}"
-        shell: 'bash -e {0}'
-        if: ${{ runner.os != 'Windows' }}
-      - name: set JOB_NAME (Windows)
-        run: |
-          $job_name = '${{ env.JOB_NAME_DIRTY }}'.Replace(':', '_').Replace('/', '_')
-          Add-Content -Path "${env:GITHUB_ENV}" -Value "JOB_NAME=${job_name}"
-        shell: pwsh
-        if: ${{ runner.os == 'Windows' }}
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5
         with:
+          persist-credentials: false
+      # TODO use current ref
+      - uses: berquist/try-python-platform@combined-ci
+        with:
+          use-sudo: true
           python-version: ${{ matrix.python-version }}
-      - name: set JSON output file location (Windows)
-        run: |
-          Add-Content -Path "${env:GITHUB_ENV}" -Value "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json"
-        shell: pwsh
-        if: ${{ runner.os == 'Windows' }}
-      - name: set JSON output file location (Unix)
-        run: |
-          echo "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json" >> "${GITHUB_ENV}"
-        if: ${{ runner.os != 'Windows' }}
-      - name: try calling platform code
-        run: |
-          python try_platform.py
-      - name: save JSON output
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4
-        with:
-          name: ${{ env.JOB_NAME }}
-          path: '*.json'

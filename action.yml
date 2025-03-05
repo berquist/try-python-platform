@@ -1,0 +1,67 @@
+---
+name: 'execute Python platform stdlib functions'
+description: 'execute Python platform stdlib functions'
+
+inputs:
+  use-sudo:
+    required: true
+  python-version:
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: set JOB_NAME (Unix)
+      run: |
+        set -x
+        JOB_NAME_DIRTY="${{ env.JOB_NAME_DIRTY }}"
+        JOB_NAME="${JOB_NAME_DIRTY//[\/:]/_}"
+        echo "JOB_NAME=${JOB_NAME}" >> "${GITHUB_ENV}"
+      shell: 'bash -e {0}'
+      if: ${{ runner.os != 'Windows' }}
+    - name: set JOB_NAME (Windows)
+      run: |
+        $job_name = '${{ env.JOB_NAME_DIRTY }}'.Replace(':', '_').Replace('/', '_')
+        Add-Content -Path "${env:GITHUB_ENV}" -Value "JOB_NAME=${job_name}"
+      shell: pwsh
+      if: ${{ runner.os == 'Windows' }}
+    - name: install system-level dependencies (Unix)
+      run: |
+        if [[ "${USE_SUDO}" == true ]]; then
+            sudo bash ./install_system_level_dependencies.sh
+        else
+            bash ./install_system_level_dependencies.sh
+        fi
+      env:
+        USE_SUDO: ${{ inputs.use-sudo }}
+      shell: bash
+      if: ${{ runner.os != 'Windows' }}
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+      if: ${{ inputs.python-version }}
+    - name: set JSON output file location (Windows)
+      run: |
+        Add-Content -Path "${env:GITHUB_ENV}" -Value "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json"
+      shell: pwsh
+      if: ${{ runner.os == 'Windows' }}
+    - name: set JSON output file location (Unix)
+      run: |
+        echo "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json" >> "${GITHUB_ENV}"
+      shell: bash
+      if: ${{ runner.os != 'Windows' }}
+    - name: try calling platform code (Windows)
+      run: |
+        python try_platform.py
+      shell: pwsh
+      if: ${{ runner.os == 'Windows' }}
+    - name: try calling platform code (Unix)
+      run: |
+        bash ./execute_python.sh
+      shell: bash
+      if: ${{ runner.os != 'Windows' }}
+    - name: save JSON output
+      uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4
+      with:
+        name: ${{ env.JOB_NAME }}
+        path: '*.json'
