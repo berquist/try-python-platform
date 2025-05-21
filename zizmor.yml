@@ -6,6 +6,9 @@ rules:
       - action.yml:23:7
       - action.yml:44:7
       - action.yml:49:7
+  unpinned-images:
+    ignore:
+      - ci_container.yml:23:7
   unpinned-uses:
     ignore:
       - ci.yml:45:9
