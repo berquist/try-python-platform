@@ -28,7 +28,7 @@ repos:
     rev: v1.8.0
     hooks:
       - id: zizmor
-        args: [--persona=pedantic]
+        args: [--no-progress, --persona=pedantic]
   - repo: https://github.com/PyCQA/isort
     rev: "6.0.1"
     hooks:
@@ -36,6 +36,6 @@ repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.11.10
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--fix]
       - id: ruff-format
