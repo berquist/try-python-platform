@@ -14,14 +14,13 @@ runs:
     - name: set JOB_NAME (Unix)
       run: |
         set -x
-        JOB_NAME_DIRTY="${{ env.JOB_NAME_DIRTY }}"
         JOB_NAME="${JOB_NAME_DIRTY//[\/:]/_}"
         echo "JOB_NAME=${JOB_NAME}" >> "${GITHUB_ENV}"
       shell: 'bash -e {0}'
       if: ${{ runner.os != 'Windows' }}
     - name: set JOB_NAME (Windows)
       run: |
-        $job_name = '${{ env.JOB_NAME_DIRTY }}'.Replace(':', '_').Replace('/', '_')
+        $job_name = '${env:JOB_NAME_DIRTY}'.Replace(':', '_').Replace('/', '_')
         Add-Content -Path "${env:GITHUB_ENV}" -Value "JOB_NAME=${job_name}"
       shell: pwsh
       if: ${{ runner.os == 'Windows' }}
@@ -42,12 +41,12 @@ runs:
       if: ${{ inputs.python-version }}
     - name: set JSON output file location (Windows)
       run: |
-        Add-Content -Path "${env:GITHUB_ENV}" -Value "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json"
+        Add-Content -Path "${env:GITHUB_ENV}" -Value "TRY_PLATFORM_OUTPUTFILE=${env:JOB_NAME}.json"
       shell: pwsh
       if: ${{ runner.os == 'Windows' }}
     - name: set JSON output file location (Unix)
       run: |
-        echo "TRY_PLATFORM_OUTPUTFILE=${{ env.JOB_NAME }}.json" >> "${GITHUB_ENV}"
+        echo "TRY_PLATFORM_OUTPUTFILE=${JOB_NAME}.json" >> "${GITHUB_ENV}"
       shell: bash
       if: ${{ runner.os != 'Windows' }}
     - name: try calling platform code (Windows)

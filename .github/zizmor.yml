@@ -3,9 +3,9 @@ rules:
   github-env:
     ignore:
       - action.yml:15:7
-      - action.yml:23:7
-      - action.yml:44:7
-      - action.yml:49:7
+      - action.yml:22:7
+      - action.yml:43:7
+      - action.yml:48:7
   unpinned-images:
     ignore:
       - ci_container.yml:23:7
