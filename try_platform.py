@@ -20,12 +20,14 @@ results = {
     "version": platform.version(),
     "uname": platform.uname(),
 }
+python_minor_version = int(results["python_version_tuple"][1])
 if results["system"] == "Darwin":
     results["mac_ver"] = platform.mac_ver()
 elif results["system"] == "Windows":
     results["win32_ver"] = platform.win32_ver()
+    if python_minor_version >= 8:
+        results["win32_edition"] = platform.win32_edition()
 else:
-    python_minor_version = int(results["python_version_tuple"][1])
     if python_minor_version >= 10:
         results["freedesktop_os_release"] = platform.freedesktop_os_release()
 pprint(results)
