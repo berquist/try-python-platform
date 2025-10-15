@@ -31,8 +31,9 @@ jobs:
           - debian:sid-20240513
           - redhat/ubi8:8.10-901.1717584420
           - redhat/ubi9:9.4-947.1717074712
-          - rockylinux:8.9.20231119
-          - rockylinux:9.3.20231119
+          - rockylinux/rockylinux:8-ubi
+          - rockylinux/rockylinux:9-ubi
+          - rockylinux/rockylinux:10-ubi
         # python-version:
         #   - 3.7
         #   - 3.8
@@ -47,6 +48,6 @@ jobs:
         with:
           persist-credentials: false
       # TODO use current ref
-      - uses: berquist/try-python-platform@main
+      - uses: berquist/try-python-platform@949b06d0045fcec94c20b22474e9315ca785024e
         with:
           use-sudo: false
