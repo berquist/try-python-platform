@@ -42,7 +42,7 @@ jobs:
         with:
           persist-credentials: false
       # TODO use current ref
-      - uses: berquist/try-python-platform@949b06d0045fcec94c20b22474e9315ca785024e
+      - uses: berquist/try-python-platform@9eebb6134551837c44e18aec185f1fed8ab4709b
         with:
           use-sudo: true
           python-version: ${{ matrix.python-version }}
