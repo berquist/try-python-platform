@@ -20,7 +20,7 @@ runs:
       if: ${{ runner.os != 'Windows' }}
     - name: set JOB_NAME (Windows)
       run: |
-        $job_name = '${env:JOB_NAME_DIRTY}'.Replace(':', '_').Replace('/', '_')
+        $job_name = "${env:JOB_NAME_DIRTY}".Replace(':', '_').Replace('/', '_')
         Add-Content -Path "${env:GITHUB_ENV}" -Value "JOB_NAME=${job_name}"
       shell: pwsh
       if: ${{ runner.os == 'Windows' }}
