@@ -26,7 +26,7 @@ jobs:
         image:
           - almalinux:8.10-20240528
           - almalinux:9.4-20240530
-          - archlinux:base-devel-20240101.0.204074
+          - archlinux/archlinux:base-devel-20260618.0.546182
           - debian:bookworm-20240513
           - debian:sid-20240513
           - redhat/ubi8:8.10-901.1717584420
